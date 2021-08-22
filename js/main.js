@@ -20,40 +20,52 @@ MarcDialogs.js v20170621 - Marc Robledo 2014-2017 - http://www.marcrobledo.com/l
 
 //
 function afiseazaRebus(table) {
-document.write("<TABLE id='mytable'>");
+	document.write("<TABLE id='mytable'>");
+	
 for(var i = 0; i < integrama.length; i++) {
 	var bucata = integrama[i];
         document.write("<TR>");
-//
-			if (table[i][j] == "▲" || table[i][j] == "▼") {
-				document.write("<TD style='height:26px;width:26px;border: none !important; color:green;'>",table[i][j],"</TD>");
-				}
-//
     for(var j = 0; j < bucata.length; j++) {
-//
-	if (table[i][j] == "@") {
-		    document.write("<TD style='height:26px;width:26px;border: none !important;'>","","</TD>");
+		
+		if (table[i][j] == "@") {
+		document.write("<TD style='height:26px;width:26px;border: none !important;'>","","</TD>");	
 		} else {
 			document.write("<TD contenteditable='true' onkeyup='literemari(this)' style='height:26px;width:26px; border: 1px solid black;'>",table[i][j],"</TD>");
-	}
-//	
+		}
+	
 }
 	document.write("</TR>");
 }
 	document.write("</TABLE>");
-//
-var tabel = document.getElementById('mytable');
-for (var k = 0; k < tabel.rows.length; k++) {
-   var firstCol = tabel.rows[k].cells[0]; //first column
-   firstCol.style.border = 'none'; // or anything you want to do with first col
-   firstCol.contentEditable = "false";
-}
+	
 //sterg literele
-    var table = document.getElementById('mytable');
+    var table = document.getElementById("mytable");
     for (var r = 1, n = table.rows.length-1; r < n; r++) {
         for (var c = 1, m = table.rows[r].cells.length; c < m; c++) {
 		table.rows[r].cells[c].innerHTML = "";
         }
+    }
+	
+	//setare indicatori si numere - aici mai trebuie lucrat
+var tabelaa = document.getElementById("mytable").rows[0].cells;
+for (s = 0; s < tabelaa.length; s++) {
+tabelaa[s].style.border = "none";
+tabelaa[s].contentEditable = "false";
+}
+var randuri = document.getElementById("mytable").rows.length;
+randuri = randuri - 1;
+//alert(randuri);
+var tabelaz = document.getElementById("mytable").rows[randuri].cells;
+for (p = 0; p < tabelaz.length; p++) {
+tabelaz[p].style.border = "none";
+tabelaz[p].contentEditable = "false";
+}
+// sterg chearul din coloana 1
+    var tablec = document.getElementById("mytable");
+        for (c = 0; c < randuri; c++) {
+		tablec.rows[c].cells[0].style.border = "none";
+		tablec.rows[c].cells[0].contentEditable = "false";
+//		table.rows[c].cells[0].style.backgroundColor = '#96ff73';
     }
 }
 
