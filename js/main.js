@@ -22,8 +22,8 @@ MarcDialogs.js v20170621 - Marc Robledo 2014-2017 - http://www.marcrobledo.com/l
 function afiseazaRebus(table) {
 	document.write("<TABLE id='mytable'>");
 	
-for(var i = 0; i < integrama.length; i++) {
-	var bucata = integrama[i];
+for(var i = 0; i < table.length; i++) {
+	var bucata = table[i];
         document.write("<TR>");
     for(var j = 0; j < bucata.length; j++) {
 		
@@ -51,6 +51,8 @@ var tabelaa = document.getElementById("mytable").rows[0].cells;
 for (s = 0; s < tabelaa.length; s++) {
 tabelaa[s].style.border = "none";
 tabelaa[s].contentEditable = "false";
+tabelaa[s].style.userSelect = "none"; 
+tabelaa[s].style.color = "#b3002d"; 
 }
 var randuri = document.getElementById("mytable").rows.length;
 randuri = randuri - 1;
@@ -59,13 +61,17 @@ var tabelaz = document.getElementById("mytable").rows[randuri].cells;
 for (p = 0; p < tabelaz.length; p++) {
 tabelaz[p].style.border = "none";
 tabelaz[p].contentEditable = "false";
+tabelaz[p].style.userSelect = "none";
+tabelaz[p].style.color = "#b3002d"; 
+
 }
-// sterg chearul din coloana 1
+// sterg chenarul din coloana 1
     var tablec = document.getElementById("mytable");
         for (c = 0; c < randuri; c++) {
 		tablec.rows[c].cells[0].style.border = "none";
 		tablec.rows[c].cells[0].contentEditable = "false";
 //		table.rows[c].cells[0].style.backgroundColor = '#96ff73';
+        tablec.rows[c].cells[0].style.userSelect = "none";
     }
 }
 
@@ -90,8 +96,14 @@ var sir ="";
 		var table = document.getElementById('mytable');
 	    for (var r = 1, n = table.rows.length-1; r < n; r++) {
            for (var c = 1, m = table.rows[r].cells.length; c < m; c++) {
-		table.rows[r].cells[c].style.backgroundColor = '#96ff73';
+			   
+			   var continutul = table.rows[r].cells[c].innerText;
+			   if (continutul !=="") {
+		       table.rows[r].cells[c].style.backgroundColor = '#73ff96';	
         }
+		
+		}
+		
 		}
 	} else {
 	MarcDialogs.alert("Wrong! <br> take a look at <br> Glossary terms.");
@@ -111,7 +123,7 @@ function literemari(ctrl) {
 		corectat = corectat.toUpperCase();
 		}
 		if (!num.match(/[a-z]/i)) {
-		MarcDialogs.alert('Just letters!');
+		MarcDialogs.alert('Just one letter!');
 		ctrl.innerText = "?";	
 		ctrl.style.backgroundColor = '#ffbfbf';
 		} else {
@@ -123,7 +135,7 @@ function literemari(ctrl) {
 		}
 }
 
-	//mai vedem
+	//verifica continutul celulei la click
         var tbl = document.getElementById("mytable");
         if (tbl != null) {
             for (var i = 0; i < tbl.rows.length; i++) {
@@ -138,3 +150,4 @@ function literemari(ctrl) {
 		//alert(majuscula);
 		cel.innerHTML = majuscula;
 		}
+
