@@ -1,5 +1,5 @@
 const solutia = "BASICGITHUBLOOPMODAL";
-
+//structura
 const integrama = [
   ["@","@","@","▼","@","@","@","@"],
   ["1","@","B","A","S","I","C","@"],
@@ -7,4 +7,12 @@ const integrama = [
   ["3","@","L","O","O","P","@","@"],
   ["4","@","@","M","O","D","A","L"],
   ["@","@","@","▲","@","@","@","@"]
+];
+
+//definitii
+const definitii = [
+"1. Beginners' All-purpose Symbolic Instruction Code programming language", 
+"2. Web-based version-control and collaboration platform for software developers",
+"3. A series of instructions (as for a computer) that is repeated until a terminating condition is reached",
+"4. A graphical control element subordinate to an application's main window"
 ];
