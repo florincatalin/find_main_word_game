@@ -2,20 +2,38 @@
 <head>
 <meta charset="utf-8">
 
+<!--
+	Find Main Word Game v.2.0 (25.08.2021)
+ Copyright 2021 Florin-Cătălin TOFAN
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+	
+	This application uses the code from 
+MarcDialogs.js v20170621 - Marc Robledo 2014-2017 - http://www.marcrobledo.com/license
+-->
+
 <link href="css/main.css" rel="stylesheet">
 <link href="css/MarcDialogs.css" rel="stylesheet">
 <script src="js/MarcDialogs.js"></script>
 <script src="js/varword.js"></script>
 
 </head>
-<html>
+
 <body>
 
 <h2>Find Main Word Game - Science</h2>
 <p id="autori">Author: Florin Cătălin TOFAN </p>
-<br />
 <script src="js/main.js"></script>
-<br />
 <div id="definit"></div>
 	
 	<script>
@@ -24,6 +42,6 @@ document.getElementById("definit").innerHTML='<object id="obiect" type="text/htm
     <br />
 	
 <button id="verificatestul" type="button" onclick="GetCellValues()">Verify</button>
-
+<div id = "afisaj"></div>
 </body>
 </html>
