@@ -1,5 +1,5 @@
 /*
-	Find Main Word Game v.1.0 (19.08.2021)
+	Find Main Word Game v.2.0 (25.08.2021)
  Copyright 2021 Florin-Cătălin TOFAN
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,23 +20,30 @@ MarcDialogs.js v20170621 - Marc Robledo 2014-2017 - http://www.marcrobledo.com/l
 
 //
 function afiseazaRebus(table) {
-	document.write("<TABLE id='mytable'>");
+	document.write("<table id='mytable'>");
 	
 for(var i = 0; i < table.length; i++) {
-	var bucata = table[i];
-        document.write("<TR>");
-    for(var j = 0; j < bucata.length; j++) {
+	var rand = table[i];
+        document.write("<tr" + " " + "id=" + '"' + i + '"' + ">");
+    for(var j = 0; j < rand.length; j++) {
 		
 		if (table[i][j] == "@") {
-		document.write("<TD style='height:26px;width:26px;border: none !important;'>","","</TD>");	
+			
+/* 		document.write("<TD style='height:26px;width:26px;border: none !important;'>","","</TD>");	 */
+		
+		document.write("<td style='height:26px;width:26px;border: none !important;'" + " " + "id=" + '"' + i + "_" + j + '"' + ">", "", "</td>");
+		
 		} else {
-			document.write("<TD contenteditable='true' onkeyup='literemari(this)' style='height:26px;width:26px; border: 1px solid black;'>",table[i][j],"</TD>");
+			
+		document.write("<td contenteditable='true' onkeyup='literemari(this)' style='height:26px;width:26px; border: 1px solid black;'" + " " + "id=" + '"' + i + "_" + j + '"' + ">", table[i][j], "</td>");
+			
+/* 			document.write("<td contenteditable='true' onkeyup='literemari(this)' style='height:26px;width:26px; border: 1px solid black;'>",table[i][j],"</td>"); */
 		}
 	
 }
-	document.write("</TR>");
+	document.write("</tr>");
 }
-	document.write("</TABLE>");
+	document.write("</table>");
 	
 //sterg literele
     var table = document.getElementById("mytable");
@@ -151,3 +158,31 @@ function literemari(ctrl) {
 		cel.innerHTML = majuscula;
 		}
 
+		
+document.onmouseover = function(e) {
+    //console.log(e.target.id);
+	var upid = e.target.id;
+	
+		var loc = upid.search("_");
+		var rowno = upid.slice(0, loc);
+		console.log(rowno);
+		if(typeof definitii[rowno-1] !== "undefined") {
+		document.getElementById("afisaj").style.display = "inherit";
+	    document.getElementById("afisaj").innerHTML = definitii[rowno-1];
+	    } 
+	    if (typeof definitii[rowno-1] == "undefined" || definitii[rowno] == "") {
+        document.getElementById("afisaj").style.display = "none"; 										
+	    }							
+									}
+	
+//calculez inaltimea tabelului rezultat
+var table = document.getElementById("mytable");
+//alert(table.offsetHeight);
+	
+//afisez in locatie
+window.onmousemove = function (e) {
+    var x = e.clientX,
+        y = e.clientY;
+    afisaj.style.top = (y + document.documentElement.scrollTop - table.offsetHeight - 400) + 'px';
+    afisaj.style.left = (x + document.documentElement.scrollLeft + 2) + 'px';
+};	
