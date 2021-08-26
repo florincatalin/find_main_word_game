@@ -1,5 +1,5 @@
 /*
-	Find Main Word Game v.2.0 (25.08.2021)
+	Find Main Word Game v.2.0 (26.08.2021)
  Copyright 2021 Florin-Cătălin TOFAN
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -165,7 +165,7 @@ document.onmouseover = function(e) {
 	
 		var loc = upid.search("_");
 		var rowno = upid.slice(0, loc);
-		console.log(rowno);
+		//console.log(rowno);
 		if(typeof definitii[rowno-1] !== "undefined") {
 		document.getElementById("afisaj").style.display = "inherit";
 	    document.getElementById("afisaj").innerHTML = definitii[rowno-1];
