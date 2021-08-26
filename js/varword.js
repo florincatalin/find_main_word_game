@@ -16,3 +16,8 @@ const definitii = [
 "3. A series of instructions (as for a computer) that is repeated until a terminating condition is reached",
 "4. A graphical control element subordinate to an application's main window"
 ];
+
+const mwd = "The smallest unit of ordinary matter that forms a chemical element."
+
+const glosar = ["GITHUB", "BASIC", "MODAL", "LOOP", "ATOM"];
+
