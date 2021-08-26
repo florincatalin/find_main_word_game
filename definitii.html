@@ -1,23 +1,37 @@
  <!DOCTYPE html>
 <html lang="en">
+
+<head>
 <meta charset="UTF-8">
 <title>Definiţii</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" href="css/definitii.css">
+<script src="js/varword.js"></script>
+<script src="js/sha.js"></script>
+</head>
 
 <body>
+
 <div>
  <h2>Definitions:</h2>
- <p class="definitii">1. Beginners' All-purpose Symbolic Instruction Code programming language</p>
- <p class="definitii">2. Web-based version-control and collaboration platform for software developers</p>
- <p class="definitii">3. A series of instructions (as for a computer) that is repeated until a terminating condition is reached </p>
- <p class="definitii">4. A graphical control element subordinate to an application's main window </p>
+
+<script>
+for (let e = 0; e < definitii.length; e++) {
+document.write('<p class="definitii">' + definitii[e] + '</p>')
+}
+</script>
+
  <h2>Main Word:</h2>
- <span>▼</span>
- <p class="cheia">The smallest unit of ordinary matter that forms a chemical element </p>
- <span>▲</span>
+<script>
+document.write('<span>▼</span><p class="cheia">' + mwd + '</p><span>▲</span>');
+</script>
   <h2>Glossary of terms:</h2>
-   <p class="definitii">GITHUB, BASIC, MODAL, LOOP, ATOM</p>
+<p class="definitii">
+<script>
+var glosarsh = shuffle(glosar);
+document.write(glosarsh.join(", "));
+</script>
+</p>
 </div>
 </body>
 </html> 
